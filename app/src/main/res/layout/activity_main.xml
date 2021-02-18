@@ -1,66 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_row="4"
     android:layout_column="2"
-    android:layout_row="3"
     android:padding="16dp"
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/editText_BillAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_row="0"
-        android:layout_column="1"
+        android:id="@+id/editText_Amount"
         android:layout_columnSpan="2"
-        android:layout_gravity="center_vertical"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="50dp"
-        android:autofillHints=""
+        android:layout_gravity="fill_horizontal"
+        android:layout_row="0"
+        android:layout_column="0"
         android:background="#faca7a"
-        android:ems="10"
         android:hint="Enter Amount"
         android:inputType="numberDecimal"
-        android:maxLength="6"
         android:padding="12dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView_BillAmount"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        />
 
     <TextView
-        android:id="@+id/textView_BillAmount"
-        android:layout_width="288dp"
-        android:layout_height="59dp"
+        android:id="@+id/textView_Percentage"
+        android:text="15%"
+        android:textSize="16sp"
         android:layout_row="1"
         android:layout_column="0"
-        android:layout_columnSpan="2"
-        android:layout_gravity="center"
-        android:layout_marginTop="148dp"
-        android:background="#faca7a"
-        android:hint="Amount"
-        android:labelFor="@+id/editText_BillAmount"
-        android:padding="16dp"
-        android:text="15%"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center_horizontal"
+        />
 
     <SeekBar
         android:id="@+id/seekBar_percentage"
-        android:layout_width="185dp"
-        android:layout_height="wrap_content"
         android:layout_row="1"
         android:layout_column="1"
-        android:layout_gravity="center"
-        android:layout_margin="120dp"
+        android:layout_gravity="fill_horizontal"
+        android:layout_margin="18dp"
         android:max="30"
         android:progress="15" />
     <TextView
@@ -85,7 +60,7 @@
         android:layout_column="0"
         android:textSize="16sp"
         android:text="Total"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_vertical" />
     <TextView
         android:id="@+id/textView_Total"
         android:layout_row="3"
@@ -95,6 +70,7 @@
         android:padding="12dp"
         android:gravity="center"
         android:text="0.0"
-        android:layout_margin="16dp" />
+        android:layout_margin="16dp"
+        android:background="#daff73"/>
 
 </GridLayout>

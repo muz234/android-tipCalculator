@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity
 
     //declare your variables for the widgets
     private EditText editTextBillAmount;
-    private TextView textViewBillAmount;
+   // private TextView textViewBillAmount;
     private SeekBar seekBarPercentage;
     private TextView textViewTip;
     private TextView textViewTotal;
@@ -39,20 +39,20 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //add Listeners to Widgets
-        editTextBillAmount = (EditText)findViewById(R.id.editText_BillAmount);
+
  /*  Note: each View that will be retrieved using findViewById needs to map to a View with the matching id
 Example: editTextBillAmount
 Needs to map to a View with the following: android:id="@+id/editText_BillAmount
 */
         editTextBillAmount.addTextChangedListener((TextWatcher) this);
 
-        textViewBillAmount = (TextView)findViewById(R.id.textView_BillAmount);
+        editTextBillAmount = (EditText)findViewById(R.id.editText_Amount);
 
         seekBarPercentage = findViewById(R.id.seekBar_percentage);
 
-        textViewTip= findViewById(R.id.textView_tip);
+        textViewPercent = findViewById(R.id.textView_Percentage);
 
-        //textViewPercent = findViewById(R.id.textView_Percent);
+        textViewTip= findViewById(R.id.textView_tip);
 
         textViewTotal = findViewById(R.id.textView_Total);
 
@@ -73,7 +73,7 @@ Needs to map to a View with the following: android:id="@+id/editText_BillAmount
         //charSequence is converted to a String and parsed to a double for you
         billAmount = Double.parseDouble(charSequence.toString()) / 100; Log.d("MainActivity", "Bill Amount = "+billAmount);
         //setText on the textView
-        textViewBillAmount.setText(currencyFormat.format(billAmount));
+        editTextBillAmount.setText(currencyFormat.format(billAmount));
         //perform tip and total calculation and update UI by calling calculate
         calculate();//uncomment this line
     }
@@ -86,6 +86,7 @@ Needs to map to a View with the following: android:id="@+id/editText_BillAmount
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
         percent = progress / 100; //calculate percent based on seeker value
+        textViewPercent.setText(String.valueOf(percent) + "%");
         calculate();
     }
 
@@ -105,16 +106,25 @@ Needs to map to a View with the following: android:id="@+id/editText_BillAmount
     private void calculate() {
         Log.d("MainActivity", "inside calculate method");
         //uncomment below
+        if (editTextBillAmount.length() == 0){
+            editTextBillAmount.requestFocus();
+            editTextBillAmount.setError("Enter Amount");
+        }
+        else {
+            // format percent and display in percentTextView
+            textViewPercent.setText(percentFormat.format(percent));
+            int percent = seekBarPercentage.getProgress();
+            // calculate the tip and total
+            double tip = billAmount * percent;
+            //use the tip example to do the same for the Total
+            double Total = billAmount + tip;
+            // display tip and total formatted as currency
+            //user currencyFormat instead of percentFormat to set the textViewTip
+            textViewTip.setText(currencyFormat.format(tip));
+            //use the tip example to do the same for the Total
+            textViewTotal.setText(String.valueOf(Total));
+        }
 
-       // format percent and display in percentTextView
-      textViewPercent.setText(percentFormat.format(percent));
-       // calculate the tip and total
-       double tip = billAmount * percent;
-      //use the tip example to do the same for the Total
-       // display tip and total formatted as currency
-       //user currencyFormat instead of percentFormat to set the textViewTip
-       //tipTextView.setText(currencyFormat.format(tip));
-       //use the tip example to do the same for the Total
 
     }
 }
