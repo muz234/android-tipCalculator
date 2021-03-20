@@ -1,3 +1,26 @@
 <resources>
-    <string name="app_name">tipCalculator</string>
+    <string name="app_name">TipCalculator2</string>
+    <string name="action_info">Info</string>
+    <string name="action_share">Share</string>
+    <string name="input_text">Enter</string>
+    <string name="percentage">15%</string>
+    <string name="tip">Tip</string>
+    <string name="total">Total</string>
+    <string name="dollarAmount">$0.00</string>
+    <string name="perPerson">PPT</string>
+    <string name="round">Round</string>
+    <string name="textViewSpinner">Split</string>
+    <string name="radio_btn_1">No</string>
+    <string name="radio_btn_2">Tip</string>
+    <string name="radio_btn_3">Total</string>
+    <string name="info_title">How the Spinner works:</string>
+    <string name="info_message">The Spinner is used to split the total among friends.\n\nPPT: Per Person Total</string>
+    <string name="positive_button">Ok</string>
+    <string-array name="spinner_options">
+        <item>between 1 Person</item>
+        <item>between 2 People</item>
+        <item>between 3 People</item>
+        <item>between 4 People</item>
+        <item>between 5 People</item>
+    </string-array>
 </resources>

@@ -1,76 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_row="4"
-    android:layout_column="2"
-    android:padding="16dp"
+    android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/editText_Amount"
-        android:layout_columnSpan="2"
-        android:layout_gravity="fill_horizontal"
-        android:layout_row="0"
-        android:layout_column="0"
-        android:background="#faca7a"
-        android:hint="Enter Amount"
-        android:inputType="numberDecimal"
-        android:padding="12dp"
-        />
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-    <TextView
-        android:id="@+id/textView_Percentage"
-        android:text="15%"
-        android:textSize="16sp"
-        android:layout_row="1"
-        android:layout_column="0"
-        android:layout_gravity="center_horizontal"
-        />
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/amount_bg"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            />
 
-    <SeekBar
-        android:id="@+id/seekBar_percentage"
-        android:layout_row="1"
-        android:layout_column="1"
-        android:layout_gravity="fill_horizontal"
-        android:layout_margin="18dp"
-        android:max="30"
-        android:progress="15" />
-    <TextView
-        android:layout_row="2"
-        android:layout_column="0"
-        android:text="Tip"
-        android:textSize="16sp"
-        android:layout_gravity="center_vertical"/>
-    <TextView
-        android:id="@+id/textView_tip"
-        android:layout_row="2"
-        android:layout_column="1"
-        android:text="0.00"
-        android:textSize="16sp"
-        android:padding="12dp"
-        android:gravity="center"
-        android:background="#daff73"
-        android:layout_gravity="fill_horizontal"
-        android:layout_margin="16dp"/>
-    <TextView
-        android:layout_row="3"
-        android:layout_column="0"
-        android:textSize="16sp"
-        android:text="Total"
-        android:layout_gravity="center_vertical" />
-    <TextView
-        android:id="@+id/textView_Total"
-        android:layout_row="3"
-        android:layout_column="1"
-        android:layout_gravity="fill_horizontal"
-        android:textSize="16sp"
-        android:padding="12dp"
-        android:gravity="center"
-        android:text="0.0"
-        android:layout_margin="16dp"
-        android:background="#daff73"/>
+    </android.support.design.widget.AppBarLayout>
 
-</GridLayout>
+    <include layout="@layout/content_main" />
+
+</android.support.design.widget.CoordinatorLayout>
